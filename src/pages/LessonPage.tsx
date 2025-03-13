@@ -15,7 +15,7 @@ export const LessonPage = () => {
     
     useEffect(() => {
         if (data) {
-            setPage(data.name);
+            setPage({name: data.name, id: data.id});
         }
     }, [data, setPage, setCourse, setModule]);    
 

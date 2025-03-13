@@ -26,7 +26,7 @@
             "name": "Palavras com A - Sílabas Simples",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": ["abacaxi", "abacate", "amor"]
+            "questionIds": ["abacaxi", "abacate", "abóbora", "amizade", "alicate", "aviso", "abano", "amapa", "anima", "apito", "amora", "ataca", "abala", "adora"]
         },
         {
             "id": 2,
@@ -34,7 +34,7 @@
             "name": "Palavras com A - Sílabas Complexas",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": [ "amanda", "abajur" ]
+            "questionIds": [ "amanda", "abajur", "alho", "arruma", "astro", "assado", "achado", "arrasto", "atalho" ]
         }
     ],
     "questions" : [
@@ -61,13 +61,134 @@
             ]
         },
         {
-            "id": "amor",
-            "value": "amor",
-            "answer": "amor",
+            "id": "abóbora",
+            "value": "abóbora",
+            "answer": "abóbora",
             "extras": [
                 {
-                    "parts" : ["a", "mo", "r"],
-                    "phones" : ["a", "mã", "ãr"]
+                    "parts" : ["a", "bó", "bo", "ra"],
+                    "phones" : ["a", "bã", "bã", "rã"]
+                }
+            ]
+        },
+        {
+            "id": "amizade",
+            "value": "amizade",
+            "answer": "amizade",
+            "extras": [
+                {
+                    "parts" : ["a", "mi", "za", "de"],
+                    "phones" : ["a", "mã", "zã", "dã"]
+                }
+            ]
+        },
+        {
+            "id": "alicate",
+            "value": "alicate",
+            "answer": "alicate",
+            "extras": [
+                {
+                    "parts" : ["a", "li", "ca", "te"],
+                    "phones" : ["a", "lã", "cã", "tã"]
+                }
+            ]
+        },
+        {
+            "id": "aviso",
+            "value": "aviso",
+            "answer": "aviso",
+            "extras": [
+                {
+                    "parts" : ["a", "vi", "so"],
+                    "phones" : ["a", "vã", "sã"]
+                }
+            ]
+        },
+        {
+            "id": "abano",
+            "value": "abano",
+            "answer": "abano",
+            "extras": [
+                {
+                    "parts": ["a", "ba", "no"],
+                    "phones": ["a", "bã", "nã"]
+                }
+            ]
+        },
+        {
+            "id": "amapa",
+            "value": "Amapá",
+            "answer": "amapá",
+            "extras": [
+                {
+                    "parts": ["a", "ma", "pa"],
+                    "phones": ["a", "mã", "pã"]
+                }
+            ]
+        },
+        {
+            "id": "anima",
+            "value": "anima",
+            "answer": "anima",
+            "extras": [
+                {
+                    "parts": ["a", "ni", "ma"],
+                    "phones": ["a", "nã", "mã"]
+                }
+            ]
+        },
+        {
+            "id": "apito",
+            "value": "apito",
+            "answer": "apito",
+            "extras": [
+                {
+                    "parts": ["a", "pi", "to"],
+                    "phones": ["a", "pã", "tã"]
+                }
+            ]
+        },
+        {
+            "id": "amora",
+            "value": "amora",
+            "answer": "amora",
+            "extras": [
+                {
+                    "parts": ["a", "mo", "ra"],
+                    "phones": ["a", "mã", "rã"]
+                }
+            ]
+        },
+        {
+            "id": "ataca",
+            "value": "ataca",
+            "answer": "ataca",
+            "extras": [
+                {
+                    "parts": ["a", "ta", "ca"],
+                    "phones": ["a", "tã", "cã"]
+                }
+            ]
+        },
+        {
+            "id": "abala",
+            "value": "abala",
+            "answer": "abala",
+            "extras": [
+                {
+                    "parts": ["a", "ba", "la"],
+                    "phones": ["a", "bã", "lã"]
+                }
+            ]
+        },
+        {
+            "id": "adora",
+            "value": "adora",
+            "answer": "adora",
+            "extras": [
+                {
+                    "parts": ["a", "do", "ra"],
+                    "phones": ["a", "dã", "rã"]
                 }
             ]
         },
@@ -90,6 +211,83 @@
                 {
                     "parts" : ["a", "ba", "ju", "r"],
                     "phones" : ["a", "bã", "jã", "ãr"]
+                }
+            ]
+        },
+        {
+            "id": "alho",
+            "value": "alho",
+            "answer": "alho",
+            "extras": [
+                {
+                    "parts": ["a", "lho"],
+                    "phones": ["a", "lhã"]
+                }
+            ]
+        },
+        {
+            "id": "arruma",
+            "value": "arruma",
+            "answer": "arruma",
+            "extras": [
+                {
+                    "parts": ["a", "rru", "ma"],
+                    "phones": ["a", "rã", "mã"]
+                }
+            ]
+        },
+        {
+            "id": "astro",
+            "value": "astro",
+            "answer": "astro",
+            "extras": [
+                {
+                    "parts": ["as", "tro"],
+                    "phones": ["as", "trã"]
+                }
+            ]
+        },
+        {
+            "id": "assado",
+            "value": "assado",
+            "answer": "assado",
+            "extras": [
+                {
+                    "parts": ["a", "ssa", "do"],
+                    "phones": ["a", "sã", "dã"]
+                }
+            ]
+        },
+        {
+            "id": "achado",
+            "value": "achado",
+            "answer": "achado",
+            "extras": [
+                {
+                    "parts": ["a", "cha", "do"],
+                    "phones": ["a", "chã", "dã"]
+                }
+            ]
+        },
+        {
+            "id": "arrasto",
+            "value": "arrasto",
+            "answer": "arrasto",
+            "extras": [
+                {
+                    "parts": ["a", "rras", "to"],
+                    "phones": ["a", "rãs", "tã"]
+                }
+            ]
+        },
+        {
+            "id": "atalho",
+            "value": "atalho",
+            "answer": "atallho",
+            "extras": [
+                {
+                    "parts": ["a", "ta", "lho"],
+                    "phones": ["a", "tã", "lhã"]
                 }
             ]
         }

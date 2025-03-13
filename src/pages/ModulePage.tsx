@@ -11,14 +11,14 @@ export const ModulePage = () => {
     const id = params.id;
 
     const { data, error, isLoading } = useFetch<Module>(`/api/modules/${id}`);
-    const { page, setPage, setCourse, setModule } = usePage();
+    const { setPage, setCourse, setModule } = usePage();
     
     useEffect(() => {
         if (data) {
-            setPage(data.name);
-            setModule(data.name);
+            setPage({name: data.name, id: data.id});
+            setModule({name: data.name, id: data.id});
         }
-    }, [data, page, setPage, setCourse, setModule]);    
+    }, [data, setPage, setCourse, setModule]);    
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;

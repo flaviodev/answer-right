@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { BreadcrumbContainer, Crumb } from "./Breadcrumb.style";
 import { usePage } from "../../hooks/PageContext";
 
@@ -7,8 +8,9 @@ const Breadcrumb: React.FC = () => {
 
   return (
     <BreadcrumbContainer>
-      <Crumb>{course}</Crumb>
-      <Crumb>{module}</Crumb>
+      <Crumb><Link to={`/`} style={{ textDecoration: "none" }}>Cursos</Link></Crumb>
+      {course && <Crumb><Link to={`/courses/${course?.id}`} style={{ textDecoration: "none" }}>{course?.name}</Link></Crumb>}
+      {module && <Crumb><Link to={`/modules/${module?.id}`} style={{ textDecoration: "none" }}>{module?.name}</Link></Crumb>}
     </BreadcrumbContainer>
   );
 };

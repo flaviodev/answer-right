@@ -6,7 +6,7 @@ export const HomePage = () => {
     const { setPage, setCourse, setModule } = usePage();
 
     useEffect(() => {
-        setPage("Meus Cursos");
+        setPage({name : "Meus Cursos", id: 0});
         setCourse();
         setModule();
     }, [setPage, setCourse, setModule]);

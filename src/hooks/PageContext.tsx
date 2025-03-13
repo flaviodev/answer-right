@@ -1,21 +1,22 @@
 import { createContext, useContext, useState } from "react";
+import { Item } from "../components/Types";
 
 interface PageContextType {
-  page?: string;  
-  course?: string;
-  module?: string;
-  setPage: (page?: string) => void;
-  setCourse: (course?: string) => void;
-  setModule: (module?: string) => void;
+  page?: Item;  
+  course?: Item;
+  module?: Item;
+  setPage: (page?: Item) => void;
+  setCourse: (course?: Item) => void;
+  setModule: (module?: Item) => void;
 }
 
 // Criando o contexto com valores iniciais
 const PageContext = createContext<PageContextType | undefined>(undefined);
 
 export const PageProvider = ({children} : {children: any}) => {
-  const [page, setPage] = useState<string|undefined>();
-  const [course, setCourse] = useState<string|undefined>();
-  const [module, setModule] = useState<string|undefined>();
+  const [page, setPage] = useState<Item|undefined>();
+  const [course, setCourse] = useState<Item|undefined>();
+  const [module, setModule] = useState<Item|undefined>();
 
   return (
     <PageContext.Provider value={{ page, course, module, setPage, setCourse, setModule }}>
