@@ -26,7 +26,7 @@
             "name": "Palavras com A - Sílabas Simples",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": ["abacaxi", "abacate", "abóbora", "amizade", "alicate", "aviso", "abano", "amapa", "anima", "apito", "amora", "ataca", "abala", "adora"]
+            "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "anima", "apito", "amora", "ataca", "abala", "adora"]
         },
         {
             "id": 2,
@@ -34,7 +34,7 @@
             "name": "Palavras com A - Sílabas Complexas",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": [ "amanda", "abajur", "alho", "arruma", "astro", "assado", "achado", "arrasto", "atalho" ]
+            "questionIds": [ "amanda", "abajur", "alho", "arruma", "astro", "assado", "achado", "arrasto", "alecrim","atalho" ]
         }
     ],
     "questions" : [
@@ -61,7 +61,7 @@
             ]
         },
         {
-            "id": "abóbora",
+            "id": "abobora",
             "value": "abóbora",
             "answer": "abóbora",
             "extras": [
@@ -281,9 +281,20 @@
             ]
         },
         {
+            "id": "alecrim",
+            "value": "alecrim",
+            "answer": "alecrim",
+            "extras": [
+                {
+                    "parts": ["a", "le", "cri", "m"],
+                    "phones": ["a", "lã", "crã", "mã"]
+                }
+            ]
+        },
+        {
             "id": "atalho",
             "value": "atalho",
-            "answer": "atallho",
+            "answer": "atalho",
             "extras": [
                 {
                     "parts": ["a", "ta", "lho"],
