@@ -1,0 +1,98 @@
+{
+    "users" : [
+        {
+            "id": 1,
+            "name": "Maria Helena",
+            "courseIds": [1]
+        }
+    ],
+    "courses" : [
+        {
+            "id": 1,
+            "name": "Alfabetização"
+        }
+    ],
+    "modules" : [
+        {
+            "id": 1,
+            "name": "Letra A",
+            "courseId" : 1            
+        }
+    ],
+    "lessons" : [
+        {
+            "id": 1,
+            "type": "AlphabetActivity",
+            "name": "Palavras com A - Sílabas Simples",
+            "instructions": "Leia a palavra",
+            "moduleId" : 1,
+            "questionIds": ["abacaxi", "abacate", "amor"]
+        },
+        {
+            "id": 2,
+            "type": "AlphabetActivity",
+            "name": "Palavras com A - Sílabas Complexas",
+            "instructions": "Leia a palavra",
+            "moduleId" : 1,
+            "questionIds": [ "amanda", "abajur" ]
+        }
+    ],
+    "questions" : [
+        {
+            "id": "abacaxi",
+            "value": "abacaxi",
+            "answer": "abacaxi",
+            "extras": [
+                {
+                    "parts" : ["a", "ba", "ca", "xi"],
+                    "phones" : ["a", "bã", "cã", "xã"]
+                }
+            ]
+        },
+        {
+            "id": "abacate",
+            "value": "abacate",
+            "answer": "abacate",
+            "extras": [
+                {
+                    "parts" : ["a", "ba", "ca", "te"],
+                    "phones" : ["a", "bã", "cã", "tã"]
+                }
+            ]
+        },
+        {
+            "id": "amor",
+            "value": "amor",
+            "answer": "amor",
+            "extras": [
+                {
+                    "parts" : ["a", "mo", "r"],
+                    "phones" : ["a", "mã", "ãr"]
+                }
+            ]
+        },
+        {
+            "id": "amanda",
+            "value": "Amanda",
+            "answer": "amanda",
+            "extras": [
+                {
+                    "parts" : ["a", "ma", "n", "da"],
+                    "phones" : ["a", "mã", "ãn", "dã"]
+                }
+            ]
+        },
+        {
+            "id": "abajur",
+            "value": "abajur",
+            "answer": "abajur",
+            "extras": [
+                {
+                    "parts" : ["a", "ba", "ju", "r"],
+                    "phones" : ["a", "bã", "jã", "ãr"]
+                }
+            ]
+        }
+    ]
+
+}
