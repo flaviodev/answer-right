@@ -1,7 +1,7 @@
 import { useFetch } from '../../../hooks/useFetch';
 import { Lesson } from '../../Types';
 import { Link } from 'react-router-dom';
-import { List, ListContainer, ListItem } from '../List.style';
+import { CheckIcon, List, ListContainer, ListItem } from '../List.style';
 
 const LessonList = ({moduleId} : {moduleId: string}) => {
   const { data, error, isLoading } = useFetch<Lesson[]>(`/api/modules/${moduleId}/lessons`);
@@ -13,7 +13,7 @@ const LessonList = ({moduleId} : {moduleId: string}) => {
     <ListContainer>
       <List>
         {data?.map((lesson: Lesson) => (
-          <Link to={`/lessons/${lesson.id}`} style={{ textDecoration: "none" }}><ListItem key={lesson.id}>{lesson.name}</ListItem></Link>
+          <Link to={`/lessons/${lesson.id}`} style={{ textDecoration: "none" }}><ListItem key={lesson.id}><CheckIcon completed={lesson.completed||false} />{lesson.name}</ListItem></Link>
         ))}
       </List>
     </ListContainer>

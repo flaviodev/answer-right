@@ -64,3 +64,8 @@ export interface Item {
   id: number;
   name: string;
 }
+
+export interface CompletedLesson {
+  lessonId: number;
+  userId: number;
+}

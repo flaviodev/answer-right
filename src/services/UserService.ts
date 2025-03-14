@@ -1,22 +1,21 @@
 import { User } from "../components/Types";
 
-
 const UserService = {
-    logged(){
+    logged() {
         let user = localStorage.getItem("logged");
 
         if (user) {
             try {
-            return JSON.parse(user) as User;
+                return JSON.parse(user) as User;
             } catch (error) {
-            return null;
+                return null;
             }
         } else { 
             return null;
         }
     },
 
-    login(user: User){
+    login(user: User) {
         localStorage.setItem("logged", JSON.stringify(user));
     },
 }

@@ -1,3 +1,4 @@
+import { FaCheckCircle } from "react-icons/fa";
 import styled from "styled-components";
 
 export const ListContainer = styled.div`
@@ -32,4 +33,10 @@ export const Title = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-size: 1.0rem;
   margin-bottom: 12px;
+`;
+
+export const CheckIcon = styled(FaCheckCircle)<{ completed: boolean }>`
+  color: ${(props) => (props.completed ? "#10b981" : "#d1d5db")};
+  font-size:  1rem;
+  margin-right: 12px;
 `;

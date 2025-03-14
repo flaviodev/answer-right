@@ -1,5 +1,6 @@
 import { Course, Lesson, LessonType, Module, Question, User } from "../components/Types";
 import data from "../data/data.json"
+import CompletedLessonService from "../services/CompletedLessonService";
 import UserService from "../services/UserService";
 
 export const memoryFetcher = (key: string): Promise<any> => {
@@ -17,11 +18,7 @@ export const memoryFetcher = (key: string): Promise<any> => {
       UserService.login(user);
     }
 
-    if (user) {
-      return {...user, courses: courses.filter((course) => user.courseIds.includes(course.id))};
-    } else {
-      return null;
-    }
+    return {...user, courses: courses.filter((course) => user.courseIds.includes(course.id))};
   };
 
   return new Promise((resolve, reject) => {
@@ -77,8 +74,11 @@ export const memoryFetcher = (key: string): Promise<any> => {
         const id = Number.parseInt(matchGetModuleLessons[1]);
         const result = lessons.filter((lesson) => lesson.moduleId === id);
 
+        const loggedUser = looggedUser();
+        const completedLessons = CompletedLessonService.completedLessons(loggedUser);
+
         if (result) {
-          resolve(result);
+          resolve(result.map((lesson) => ({...lesson, completed: completedLessons.includes(lesson.id)})));
         } else {
           reject(new Error('Module not found'));
         }

@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { Lesson, Question } from "../Types";
-import { useFetch } from "../../hooks/useFetch";
+import { Question } from "../Types";
 import QuestionComponent from "../Question/QuestionComponent";
 import { shuffle } from "../../utils";
 import { Button, Container, Instructions, Progress, ProgressBarContainer, Title } from "./Lesson.style";
+import { useLesson } from "../../hooks/useLesson";
+import { useNavigate } from "react-router-dom";
 
 const LessonComponent = ({lessonId} : {lessonId: string}) => {
-  const { data, error, isLoading } = useFetch<Lesson>(`/api/lessons/${lessonId}`);
+  const navigate = useNavigate();
+  const { data, error, isLoading, completeLesson } = useLesson(lessonId);
+
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [correctCount, setCorrectCount] = useState<number>(0);
@@ -24,12 +27,18 @@ const LessonComponent = ({lessonId} : {lessonId: string}) => {
 
   const onAnswer = (match: Boolean) => {
     setCurrentIndex(currentIndex + 1);
+    let correct = correctCount;
     if (match) {
       setCorrectCount(correctCount + 1);
+      correct++;
     } else {
       setWrongCount(wrongCount + 1);
     }
     setCompleted(((currentIndex + 1) / questions.length) * 100);
+
+    if (correct === questions.length) {
+      completeLesson(data);
+    }
   };
 
   const restartGame = () => {
@@ -54,7 +63,7 @@ const LessonComponent = ({lessonId} : {lessonId: string}) => {
         <>
           <h2>{correctCount === questions.length ? "🎉 Parabéns! Você acertou tudo!" : "❌ Você errou algumas palavras!"}</h2>
           {correctCount !== questions.length && <p>Seu resultado: {correctCount}/{questions.length}</p>}
-          <Button onClick={restartGame}>Tentar Novamente</Button>
+          {correctCount === questions.length ? <Button onClick={() => navigate(-1)}>Completar novas lições</Button> : <Button onClick={restartGame}>Tentar Novamente</Button>}
         </>
       )}
     </Container>
