@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { CircleButton, Container, ErrorMessage, Input, InputStatus, ResultText } from "./Question.style";
-import { Question, QuestionState, SpeechRecognitionEvent } from "../Types";
-import { FaMicrophone, FaEllipsisH } from "react-icons/fa";
+import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, QuestionContainer, MicroButton, SpeakButton, ButtonContainer } from "./Question.style";
+import { Lesson, LessonType, Question, QuestionState, SpeechRecognitionEvent } from "../Types";
+import { FaMicrophone, FaEllipsisH, FaVolumeUp } from "react-icons/fa";
 
-const QuestionComponent = ({question, isSpeakCorrection, onAnswer} : {question: Question, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
+const QuestionComponent = ({question, lesson, isSpeakCorrection, onAnswer} : {question: Question, lesson: Lesson, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
 
   const [spokenText, setSpokenText] = useState<string>("");
   const [state, setState] = useState<QuestionState>(QuestionState.Ready);
@@ -49,6 +49,13 @@ const QuestionComponent = ({question, isSpeakCorrection, onAnswer} : {question: 
     setState(QuestionState.Ready);
   };
 
+  const speakQuestion = () => {
+    const utterance = new SpeechSynthesisUtterance();
+    utterance.lang = "pt-BR";
+    utterance.text = question.value;
+    speechSynthesis.speak(utterance);
+  }
+
   const speakResult = (match: boolean) => {
     const utterance = new SpeechSynthesisUtterance();
     utterance.lang = "pt-BR";
@@ -60,7 +67,7 @@ const QuestionComponent = ({question, isSpeakCorrection, onAnswer} : {question: 
     } else {
         setStatus(InputStatus.Wrong);
         if (isSpeakCorrection) {
-          utterance.text = `Errado! A palavra certa é ${question.answer}`;
+          utterance.text = `Errado! A resposta certa é ${question.answer}`;
           utterance.rate = 0.7; 
           speechSynthesis.speak(utterance);
         } else {
@@ -78,15 +85,26 @@ const QuestionComponent = ({question, isSpeakCorrection, onAnswer} : {question: 
 
   return (
     <Container>
-      <Input
-        type="text"
-        value={question.value}
-        status={status}
-        disabled
-      />
-      <CircleButton onClick={state === "ready" ? startListening : undefined} state={state}>
-        {state === "waiting" ? <FaEllipsisH /> : <FaMicrophone />}
-      </CircleButton>
+      {lesson.type === LessonType.AlphabetActivity ? ( 
+        <WordContainer
+          type="text"
+          value={question.value}
+          status={status}
+          disabled
+        />
+      ) : (
+        <QuestionContainer>{question.value}</QuestionContainer>
+      )}
+      <ButtonContainer>
+        {lesson.type !== LessonType.AlphabetActivity && (
+          <SpeakButton onClick={speakQuestion} state={QuestionState.Ready}>
+            <FaVolumeUp />
+          </SpeakButton>
+        )}
+        <MicroButton onClick={state === "ready" ? startListening : undefined} state={state}>
+          {state === "waiting" ? <FaEllipsisH /> : <FaMicrophone />}
+        </MicroButton>
+      </ButtonContainer>
 
       {spokenText && !isMatch && (
         <ResultText match={isMatch}>

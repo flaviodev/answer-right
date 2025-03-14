@@ -23,6 +23,8 @@ export enum LessonType {
   AlphabetTraining = "alphabet-training",
   AlphabetActivity = "alphabet-activity",
   AlphabetTest = "alphabet-test",
+  MatchAnswerActivity = "match-answer-activity",
+  MatchAnswerTest = "match-answer-test",
 }
 
 export enum QuestionState {

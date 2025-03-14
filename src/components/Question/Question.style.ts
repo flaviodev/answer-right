@@ -19,7 +19,7 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const Input = styled.input<{ status: InputStatus }>`
+export const WordContainer = styled.input<{ status: InputStatus }>`
   width: 100%;
   margin: 12px;
   padding: 12px;
@@ -38,7 +38,19 @@ export const Input = styled.input<{ status: InputStatus }>`
   }
 `;
 
-export const CircleButton = styled.button<{ state: "ready" | "waiting" | "listening" }>`
+export const QuestionContainer = styled.h2`
+  font-size: 1.0rem;
+  margin-bottom: 12px;
+`;
+
+export const ButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  direction: row;
+  gap: 10px;
+`;
+
+export const MicroButton = styled.button<{ state: "ready" | "waiting" | "listening" }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,6 +60,26 @@ export const CircleButton = styled.button<{ state: "ready" | "waiting" | "listen
   border-radius: 50%;
   background-color: ${({ state }) =>
     state === "ready" ? "#007bff" : state === "waiting" ? "gray" : "green"};
+  color: white;
+  font-size: 1.8rem;
+  cursor: ${({ state }) => (state === "ready" ? "pointer" : "not-allowed")};
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: ${({ state }) =>
+      state === "ready" ? "#0056b3" : state === "waiting" ? "gray" : "green"};
+  }
+`;
+
+export const SpeakButton = styled.button<{ state: "ready" | "waiting" | "listening" }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  background-color: green;
   color: white;
   font-size: 1.8rem;
   cursor: ${({ state }) => (state === "ready" ? "pointer" : "not-allowed")};

@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Maria Helena",
-            "courseIds": [1]
+            "courseIds": [1,2]
         },
         {
             "id": 2,
@@ -20,6 +20,10 @@
         {
             "id": 1,
             "name": "Alfabetização"
+        },
+        {
+            "id": 2,
+            "name": "Catecismo"
         }
     ],
     "modules" : [
@@ -27,6 +31,11 @@
             "id": 1,
             "name": "Letra A",
             "courseId" : 1            
+        },
+        {
+            "id": 2,
+            "name": "Mandamentos",
+            "courseId" : 2            
         }
     ],
     "lessons" : [
@@ -53,6 +62,14 @@
             "instructions": "Leia a palavra",
             "moduleId" : 1,
             "questionIds": [ "amora", "atacar", "abalar", "adorar", "amargo", "avião", "árvore", "abelha", "abraço", "alegria" ]
+        },
+        {
+            "id": 4,
+            "type": "MatchAnswerActivity",
+            "name": "Mandamentos da Lei de Deus",
+            "instructions": "Responda",
+            "moduleId" : 2,
+            "questionIds": [ "mandamento1", "mandamento2", "mandamento3", "mandamento4", "mandamento5", "mandamento6", "mandamento7", "mandamento8", "mandamento9", "mandamento10" ]
         }
     ],
     "questions" : [
@@ -385,6 +402,66 @@
                     "phones": ["a", "lã", "grã", "a"]
                 }
             ]
+        },
+        {
+            "id": "mandamento1",
+            "value": "Qual é o primeiro mandamento?",
+            "answer": "Amar a Deus sobre todas as coisas",
+            "extras": []
+        },
+        {
+            "id": "mandamento2",
+            "value": "Qual é o segundo mandamento?",
+            "answer": "Não tomar seu Santo Nome em vão",
+            "extras": []
+        },
+        {
+            "id": "mandamento3",
+            "value": "Qual é o terceiro mandamento?",
+            "answer": "Guardar domingos e festas",
+            "extras": []
+        },
+        {
+            "id": "mandamento4",
+            "value": "Qual é o quarto mandamento?",
+            "answer": "Honrar pai e mãe",
+            "extras": []
+        },
+        {
+            "id": "mandamento5",
+            "value": "Qual é o quinto mandamento?",
+            "answer": "Não matar",
+            "extras": []
+        },
+        {
+            "id": "mandamento6",
+            "value": "Qual é o sexto mandamento?",
+            "answer": "Não pecar contra a castidade",
+            "extras": []
+        },
+        {
+            "id": "mandamento7",
+            "value": "Qual é o sétimo mandamento?",
+            "answer": "Não furtar",
+            "extras": []
+        },
+        {
+            "id": "mandamento8",
+            "value": "Qual é o oitavo mandamento?",
+            "answer": "Não levantar falso testemunho",
+            "extras": []
+        },
+        {
+            "id": "mandamento9",
+            "value": "Qual é o nono mandamento?",
+            "answer": "Não desejar a mulher do próximo",
+            "extras": []
+        },
+        {
+            "id": "mandamento10",
+            "value": "Qual é o décimo mandamento?",
+            "answer": "Não cobiçar as coisas alheias",
+            "extras": []
         }
     ]
 }
