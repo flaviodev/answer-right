@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, QuestionContainer, MicroButton, SpeakButton, ButtonContainer } from "./Question.style";
-import { Lesson, LessonType, Question, QuestionState, SpeechRecognitionEvent } from "../Types";
+import { Question, QuestionState, SpeechRecognitionEvent } from "../Types";
 import { FaMicrophone, FaEllipsisH, FaVolumeUp } from "react-icons/fa";
 
-const QuestionComponent = ({question, lesson, isSpeakCorrection, onAnswer} : {question: Question, lesson: Lesson, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
+const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onAnswer} : {question: Question, allowSpeakQuestion: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
 
   const [spokenText, setSpokenText] = useState<string>("");
   const [state, setState] = useState<QuestionState>(QuestionState.Ready);
@@ -85,7 +85,7 @@ const QuestionComponent = ({question, lesson, isSpeakCorrection, onAnswer} : {qu
 
   return (
     <Container>
-      {lesson.type === LessonType.AlphabetActivity ? ( 
+      {!allowSpeakQuestion ? ( 
         <WordContainer
           type="text"
           value={question.value}
@@ -96,7 +96,7 @@ const QuestionComponent = ({question, lesson, isSpeakCorrection, onAnswer} : {qu
         <QuestionContainer>{question.value}</QuestionContainer>
       )}
       <ButtonContainer>
-        {lesson.type !== LessonType.AlphabetActivity && (
+        {allowSpeakQuestion && (
           <SpeakButton onClick={speakQuestion} state={QuestionState.Ready}>
             <FaVolumeUp />
           </SpeakButton>

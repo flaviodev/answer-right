@@ -43,6 +43,7 @@ export interface Question {
 export interface Lesson extends Item {
   moduleId: number;
   type: LessonType;
+  allowSpeakQuestion: boolean;
   instructions: string;
   questionIds: string[];
   questions?: Question[];

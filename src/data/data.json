@@ -42,6 +42,7 @@
         {
             "id": 1,
             "type": "AlphabetActivity",
+            "allowSpeakQuestion": false,
             "name": "Lista 1",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
@@ -50,6 +51,7 @@
         {
             "id": 2,
             "type": "AlphabetActivity",
+            "allowSpeakQuestion": false,
             "name": "Lista 2",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
@@ -58,6 +60,7 @@
         {
             "id": 3,
             "type": "AlphabetActivity",
+            "allowSpeakQuestion": false,
             "name": "Lista 3",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
@@ -66,6 +69,7 @@
         {
             "id": 4,
             "type": "MatchAnswerActivity",
+            "allowSpeakQuestion": true,
             "name": "Mandamentos da Lei de Deus",
             "instructions": "Responda",
             "moduleId" : 2,
