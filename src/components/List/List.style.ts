@@ -38,5 +38,5 @@ export const Title = styled.h2`
 export const CheckIcon = styled(FaCheckCircle)<{ completed: boolean }>`
   color: ${(props) => (props.completed ? "#10b981" : "#d1d5db")};
   font-size:  1rem;
-  margin-right: 12px;
+  margin-left: 12px;
 `;

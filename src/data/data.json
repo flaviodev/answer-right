@@ -33,18 +33,26 @@
         {
             "id": 1,
             "type": "AlphabetActivity",
-            "name": "Palavras com A - Sílabas Simples",
+            "name": "Lista 1",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "anima", "apito", "amora", "ataca", "abala", "adora"]
+            "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "animar", "apito"]
         },
         {
             "id": 2,
             "type": "AlphabetActivity",
-            "name": "Palavras com A - Sílabas Complexas",
+            "name": "Lista 2",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
-            "questionIds": [ "amanda", "abajur", "alho", "arruma", "astro", "assado", "achado", "arrasto", "alecrim","atalho" ]
+            "questionIds": [ "amanda", "abajur", "alho", "arrumar", "astro", "assado", "achado", "arrasto", "alecrim", "atalho" ]
+        },
+        {
+            "id": 3,
+            "type": "AlphabetActivity",
+            "name": "Lista 3",
+            "instructions": "Leia a palavra",
+            "moduleId" : 1,
+            "questionIds": [ "amora", "atacar", "abalar", "adorar", "amargo", "avião", "árvore", "abelha", "abraço", "alegria" ]
         }
     ],
     "questions" : [
@@ -137,13 +145,13 @@
             ]
         },
         {
-            "id": "anima",
-            "value": "anima",
-            "answer": "anima",
+            "id": "animar",
+            "value": "animar",
+            "answer": "animar",
             "extras": [
                 {
-                    "parts": ["a", "ni", "ma"],
-                    "phones": ["a", "nã", "mã"]
+                    "parts": ["a", "ni", "ma", "r"],
+                    "phones": ["a", "nã", "mã", "ãr"]
                 }
             ]
         },
@@ -170,35 +178,35 @@
             ]
         },
         {
-            "id": "ataca",
-            "value": "ataca",
-            "answer": "ataca",
+            "id": "atacar",
+            "value": "atacar",
+            "answer": "atacar",
             "extras": [
                 {
-                    "parts": ["a", "ta", "ca"],
-                    "phones": ["a", "tã", "cã"]
+                    "parts": ["a", "ta", "ca", "r"],
+                    "phones": ["a", "tã", "cã", "ãr"]
                 }
             ]
         },
         {
-            "id": "abala",
-            "value": "abala",
-            "answer": "abala",
+            "id": "abalar",
+            "value": "abalar",
+            "answer": "abalar",
             "extras": [
                 {
-                    "parts": ["a", "ba", "la"],
-                    "phones": ["a", "bã", "lã"]
+                    "parts": ["a", "ba", "la", "r"],
+                    "phones": ["a", "bã", "lã", "ãr"]
                 }
             ]
         },
         {
-            "id": "adora",
-            "value": "adora",
-            "answer": "adora",
+            "id": "adorar",
+            "value": "adorar",
+            "answer": "adorar",
             "extras": [
                 {
-                    "parts": ["a", "do", "ra"],
-                    "phones": ["a", "dã", "rã"]
+                    "parts": ["a", "do", "ra", "r"],
+                    "phones": ["a", "dã", "rã", "ãr"]
                 }
             ]
         },
@@ -236,13 +244,13 @@
             ]
         },
         {
-            "id": "arruma",
-            "value": "arruma",
-            "answer": "arruma",
+            "id": "arrumar",
+            "value": "arrumar",
+            "answer": "arrumar",
             "extras": [
                 {
-                    "parts": ["a", "rru", "ma"],
-                    "phones": ["a", "rã", "mã"]
+                    "parts": ["a", "rru", "ma", "r"],
+                    "phones": ["a", "rã", "mã", "ãr"]
                 }
             ]
         },
@@ -311,7 +319,72 @@
                     "phones": ["a", "tã", "lhã"]
                 }
             ]
+        },
+        {
+            "id": "amargo",
+            "value": "amargo",
+            "answer": "amargo",
+            "extras": [
+                {
+                    "parts": ["a", "ma","r", "go"],
+                    "phones": ["a", "mã", "ãr", "gã"]
+                }
+            ]
+        },
+        {
+            "id": "avião",
+            "value": "avião",
+            "answer": "avião",
+            "extras": [
+                {
+                    "parts": ["a", "vi","ão"],
+                    "phones": ["a", "vã", "ão"]
+                }
+            ]
+        },
+        {
+            "id": "árvore",
+            "value": "árvore",
+            "answer": "árvore",
+            "extras": [
+                {
+                    "parts": ["a", "r", "vo","re"],
+                    "phones": ["a", "ãr", "vã", "rã"]
+                }
+            ]
+        },
+        {
+            "id": "abelha",
+            "value": "abelha",
+            "answer": "abelha",
+            "extras": [
+                {
+                    "parts": ["a", "be", "lha"],
+                    "phones": ["a", "bã", "lhã"]
+                }
+            ]
+        },
+        {
+            "id": "abraço",
+            "value": "abraço",
+            "answer": "abraço",
+            "extras": [
+                {
+                    "parts": ["a", "bra", "ço"],
+                    "phones": ["a", "brã", "çã"]
+                }
+            ]
+        },
+        {
+            "id": "alegria",
+            "value": "alegria",
+            "answer": "alegria",
+            "extras": [
+                {
+                    "parts": ["a", "le", "gri", "a"],
+                    "phones": ["a", "lã", "grã", "a"]
+                }
+            ]
         }
     ]
-
 }

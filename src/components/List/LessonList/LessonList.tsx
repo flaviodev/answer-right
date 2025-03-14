@@ -13,7 +13,7 @@ const LessonList = ({moduleId} : {moduleId: string}) => {
     <ListContainer>
       <List>
         {data?.map((lesson: Lesson) => (
-          <Link to={`/lessons/${lesson.id}`} style={{ textDecoration: "none" }}><ListItem key={lesson.id}><CheckIcon completed={lesson.completed||false} />{lesson.name}</ListItem></Link>
+          <Link to={`/lessons/${lesson.id}`} style={{ textDecoration: "none" }}><ListItem key={lesson.id}>{lesson.name}{lesson.completed && <CheckIcon completed={lesson.completed||false} />}</ListItem></Link>
         ))}
       </List>
     </ListContainer>
