@@ -4,6 +4,16 @@
             "id": 1,
             "name": "Maria Helena",
             "courseIds": [1]
+        },
+        {
+            "id": 2,
+            "name": "Maria Stella",
+            "courseIds": [1]
+        },
+        {
+            "id": 3,
+            "name": "José Marcel",
+            "courseIds": [1]
         }
     ],
     "courses" : [

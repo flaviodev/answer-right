@@ -1,7 +1,7 @@
-import { useFetch } from '../../hooks/useFetch';
-import { Course, User } from '../Types';
+import { useFetch } from '../../../hooks/useFetch';
+import { Course, User } from '../../Types';
 import { Link } from 'react-router-dom';
-import { List, ListContainer, ListItem } from './CourseList.style';
+import { List, ListContainer, ListItem } from '../List.style';
 
 const CourseList = () => {
   const { data, error, isLoading } = useFetch<User>(`/api/users/logged`);
@@ -13,7 +13,7 @@ const CourseList = () => {
     <ListContainer>
       <List>
         {data?.courses?.map((course: Course) => (
-          <ListItem key={course.id}><Link to={`/courses/${course.id}`} style={{ textDecoration: "none" }}>{course.name}</Link></ListItem>
+          <Link to={`/courses/${course.id}`} style={{ textDecoration: "none" }}><ListItem key={course.id}>{course.name}</ListItem></Link>
         ))}
       </List>
     </ListContainer>

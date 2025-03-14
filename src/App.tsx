@@ -8,6 +8,8 @@ import { CoursePage } from "./pages/CoursePage";
 import { ModulePage } from "./pages/ModulePage";
 import { PageProvider } from "./hooks/PageContext";
 import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
+import BottomBar from "./components/BottomBar/BottomBar";
+import { UserPage } from "./pages/UserPage";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
@@ -32,9 +34,11 @@ export const App = () => {
             <Route path="/courses/:id" element={<CoursePage/>} />
             <Route path="/modules/:id" element={<ModulePage/>} />
             <Route path="/lessons/:id" element={<LessonPage/>} />
+            <Route path="/users" element={<UserPage/>} />
             <Route path="*" element={<Error404/>} />
           </Routes>
         </div>
+        <BottomBar />
       </HashRouter>
     </PageProvider>
     </>

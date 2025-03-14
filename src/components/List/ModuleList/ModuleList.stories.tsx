@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import LessonList from './ModuleListComponent';
+import LessonList from './ModuleList';
 
 const meta: Meta<typeof LessonList> = {
   title: 'Components/LessonList',

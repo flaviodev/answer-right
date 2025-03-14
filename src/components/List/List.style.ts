@@ -14,6 +14,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  font-family: 'Poppins', sans-serif;
   background: white;
   padding: 15px;
   border-bottom: 1px solid #ddd;
@@ -25,4 +26,10 @@ export const ListItem = styled.li`
   &:last-child {
     border-bottom: none;
   }
+`;
+
+export const Title = styled.h2`
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0rem;
+  margin-bottom: 12px;
 `;

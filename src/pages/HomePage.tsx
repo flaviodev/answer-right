@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import CourseList from "../components/CourseList/CourseList";
+import CourseList from "../components/List/CourseList/CourseList";
 import { usePage } from "../hooks/PageContext";
 
 export const HomePage = () => {

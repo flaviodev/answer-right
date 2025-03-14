@@ -4,7 +4,7 @@ import { usePage } from "../hooks/PageContext";
 import { useFetch } from "../hooks/useFetch";
 import { Module } from "../components/Types";
 import { Error404 } from "./Error404";
-import LessonListComponent from "../components/LessonList/LessonListComponent";
+import LessonList from "../components/List/LessonList/LessonList";
 
 export const ModulePage = () => {
     const params = useParams();
@@ -24,7 +24,7 @@ export const ModulePage = () => {
     if (error) return <p>Error loading data</p>;
 
     if (id) {
-        return <LessonListComponent moduleId={id} />;
+        return <LessonList moduleId={id} />;
     } else {
         return <Error404/>
     }

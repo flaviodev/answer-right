@@ -1,9 +1,10 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { NavbarContainer, Title, BackButton } from "./NavBar.styled";
 import { usePage } from "../../hooks/PageContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const NavBarComponent = () => {
+  const navigate = useNavigate();
   const { page } = usePage();
 
   const location = useLocation();
@@ -11,7 +12,7 @@ export const NavBarComponent = () => {
   const isHome = location.pathname === "/";
 
   const handleBack = () => {
-    window.history.back(); 
+    navigate(-1);
   };
   
   return (

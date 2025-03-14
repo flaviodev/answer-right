@@ -1,10 +1,15 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BreadcrumbContainer, Crumb } from "./Breadcrumb.style";
 import { usePage } from "../../hooks/PageContext";
 
-const Breadcrumb: React.FC = () => {
-  const { course, module } = usePage(); // Consumindo o contexto
+const Breadcrumb = () => {
+  const { course, module } = usePage(); 
+
+  const location = useLocation();
+  const isUsers = location.pathname === "/users";
+
+  if (isUsers) return;
 
   return (
     <BreadcrumbContainer>
