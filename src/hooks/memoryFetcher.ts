@@ -1,4 +1,4 @@
-import { Course, Lesson, LessonType, Module, Question, User } from "../components/Types";
+import { Course, Lesson, Module, Question, User } from "../components/Types";
 import data from "../data/data.json"
 import CompletedLessonService from "../services/CompletedLessonService";
 import UserService from "../services/UserService";
@@ -7,7 +7,7 @@ export const memoryFetcher = (key: string): Promise<any> => {
   const users: User[] = data?.users || [];
   const courses: Course[] = data?.courses || [];
   const modules: Module[] = data?.modules || [];
-  const lessons: Lesson[] = data?.lessons.map((lesson) => ({...lesson, type: lesson.type as LessonType})) || [];
+  const lessons: Lesson[] = data?.lessons || [];
   const questions: Question[] = data?.questions || [];
 
   const looggedUser = () => {
@@ -87,7 +87,7 @@ export const memoryFetcher = (key: string): Promise<any> => {
 
       const matchGetLessons = key.match(/^\/api\/lessons\/([\w-]+)$/);
       if (matchGetLessons) {
-        const id = Number.parseInt(matchGetLessons[1]);
+        const id = matchGetLessons[1];
         const result = lessons.find((lesson) => lesson.id === id);
 
         if (result) {

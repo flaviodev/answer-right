@@ -6,7 +6,7 @@ const CompletedLessonService = {
 
         if (completedLessons) {
             try {
-                return JSON.parse(completedLessons) as number[];
+                return JSON.parse(completedLessons) as string[];
             } catch (error) {
                 return [];
             }
@@ -15,7 +15,7 @@ const CompletedLessonService = {
         }
     },
 
-    completeLesson(user: User, lessonId: number){
+    completeLesson(user: User, lessonId: string){
         let completedLessons = this.completedLessons(user);
         completedLessons.push(lessonId);
         localStorage.setItem(`completedLessons-${user.id}`, JSON.stringify(completedLessons));

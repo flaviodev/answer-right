@@ -40,35 +40,36 @@
     ],
     "lessons" : [
         {
-            "id": 1,
-            "type": "AlphabetActivity",
-            "allowSpeakQuestion": false,
+            "id": "a1",
+            "name": "Treino",
+            "instructions": "Clique nos fonemas e Leia a palavra",
+            "separatingPhonemes": true,
+            "moduleId" : 1,
+            "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "animar", "apito"]
+        },
+        {
+            "id": "a2",
             "name": "Lista 1",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
             "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "animar", "apito"]
         },
         {
-            "id": 2,
-            "type": "AlphabetActivity",
-            "allowSpeakQuestion": false,
+            "id": "a3",
             "name": "Lista 2",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
             "questionIds": [ "amanda", "abajur", "alho", "arrumar", "astro", "assado", "achado", "arrasto", "alecrim", "atalho" ]
         },
         {
-            "id": 3,
-            "type": "AlphabetActivity",
-            "allowSpeakQuestion": false,
+            "id": "a4",
             "name": "Lista 3",
             "instructions": "Leia a palavra",
             "moduleId" : 1,
             "questionIds": [ "amora", "atacar", "abalar", "adorar", "amargo", "avião", "árvore", "abelha", "abraço", "alegria" ]
         },
         {
-            "id": 4,
-            "type": "MatchAnswerActivity",
+            "id": "c1",
             "allowSpeakQuestion": true,
             "name": "Mandamentos da Lei de Deus",
             "instructions": "Responda",

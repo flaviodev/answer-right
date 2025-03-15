@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, QuestionContainer, MicroButton, SpeakButton, ButtonContainer } from "./Question.style";
-import { Question, QuestionState, SpeechRecognitionEvent } from "../Types";
+import { Question, SpeechRecognitionEvent } from "../Types";
 import { FaMicrophone, FaEllipsisH, FaVolumeUp } from "react-icons/fa";
 
 const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onAnswer} : {question: Question, allowSpeakQuestion: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
 
   const [spokenText, setSpokenText] = useState<string>("");
-  const [state, setState] = useState<QuestionState>(QuestionState.Ready);
+  const [micState, setMicState] = useState<"ready" | "waiting" | "listening" | "locked">("ready");
+  const [speakState, setSpeakState] = useState<"ready" | "speaking" | "locked">("ready");
   const [status, setStatus] = useState<InputStatus>(InputStatus.Default);
   const [isMatch, setIsMatch] = useState<boolean | undefined>(undefined);  
 
@@ -22,19 +23,21 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
   recognition.interimResults = false;
   
   const startListening = () => {
-    setState(QuestionState.Waiting);
+    setMicState("waiting");
+    setSpeakState("locked");
     setSpokenText("");
     recognition.start();
 
     setTimeout(() => {
-      setState(QuestionState.Listening);
+      setMicState("listening");
     }, 900);
   };
 
   recognition.onresult = (event: SpeechRecognitionEvent) => {
     const transcript = event.results[0][0].transcript.trim().toLowerCase();
     setSpokenText(transcript);
-    setState(QuestionState.Ready);
+    setMicState("ready");
+  
 
     const match = transcript === question.answer.trim().toLowerCase();
     setIsMatch(match);
@@ -42,18 +45,27 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
   };
 
   recognition.onerror = () => {
-    setState(QuestionState.Ready);
+    setMicState("ready");
+    setSpeakState("ready");
   };
 
   recognition.onend = () => {
-    setState(QuestionState.Ready);
+    setMicState("ready");
+    setSpeakState("ready");
   };
 
   const speakQuestion = () => {
+    setMicState("locked");
+    setSpeakState("speaking");
     const utterance = new SpeechSynthesisUtterance();
     utterance.lang = "pt-BR";
     utterance.text = question.value;
     speechSynthesis.speak(utterance);
+
+    utterance.onend = () => {
+      setMicState("ready");
+      setSpeakState("ready");
+    };
   }
 
   const speakResult = (match: boolean) => {
@@ -80,6 +92,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
       onAnswer(match);
       setSpokenText("");
       setStatus(InputStatus.Default);
+      setSpeakState("ready");
     };
   };
 
@@ -97,12 +110,12 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
       )}
       <ButtonContainer>
         {allowSpeakQuestion && (
-          <SpeakButton onClick={speakQuestion} state={QuestionState.Ready}>
+          <SpeakButton onClick={speakState === "ready" ? speakQuestion : undefined} state={speakState}>
             <FaVolumeUp />
           </SpeakButton>
         )}
-        <MicroButton onClick={state === "ready" ? startListening : undefined} state={state}>
-          {state === "waiting" ? <FaEllipsisH /> : <FaMicrophone />}
+        <MicroButton onClick={micState === "ready" ? startListening : undefined} state={micState}>
+          {micState === "waiting" ? <FaEllipsisH /> : <FaMicrophone />}
         </MicroButton>
       </ButtonContainer>
 

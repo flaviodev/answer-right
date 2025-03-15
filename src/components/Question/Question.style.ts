@@ -50,7 +50,7 @@ export const ButtonContainer = styled.div`
   gap: 10px;
 `;
 
-export const MicroButton = styled.button<{ state: "ready" | "waiting" | "listening" }>`
+export const MicroButton = styled.button<{ state: "ready" | "waiting" | "listening" | "locked" }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,8 @@ export const MicroButton = styled.button<{ state: "ready" | "waiting" | "listeni
   border: none;
   border-radius: 50%;
   background-color: ${({ state }) =>
-    state === "ready" ? "#007bff" : state === "waiting" ? "gray" : "green"};
+    state === "locked" || state === "waiting" ? "gray" :  (state === "ready" ? "#007bff" : "green")
+  };
   color: white;
   font-size: 1.8rem;
   cursor: ${({ state }) => (state === "ready" ? "pointer" : "not-allowed")};
@@ -67,11 +68,11 @@ export const MicroButton = styled.button<{ state: "ready" | "waiting" | "listeni
 
   &:hover {
     background-color: ${({ state }) =>
-      state === "ready" ? "#0056b3" : state === "waiting" ? "gray" : "green"};
+      state === "ready" ? "#0056b3" : state === "waiting" ? "gray" : state === "locked" ? "gray" : "green"};
   }
 `;
 
-export const SpeakButton = styled.button<{ state: "ready" | "waiting" | "listening" }>`
+export const SpeakButton = styled.button<{ state: "ready" | "speaking" | "locked" }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,16 +80,13 @@ export const SpeakButton = styled.button<{ state: "ready" | "waiting" | "listeni
   height: 70px;
   border: none;
   border-radius: 50%;
-  background-color: green;
+  background-color: ${({ state }) =>
+    state === 'locked' ? 'gray' : (state === 'speaking' ? 'red' : 'orange')
+  };
   color: white;
   font-size: 1.8rem;
   cursor: ${({ state }) => (state === "ready" ? "pointer" : "not-allowed")};
   transition: background 0.3s ease;
-
-  &:hover {
-    background-color: ${({ state }) =>
-      state === "ready" ? "#0056b3" : state === "waiting" ? "gray" : "green"};
-  }
 `;
 
 export const ResultText = styled.p<{ match?: boolean }>`

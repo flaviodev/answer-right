@@ -19,20 +19,6 @@ export interface Answer {
   status: boolean;
 }
 
-export enum LessonType {
-  AlphabetTraining = "alphabet-training",
-  AlphabetActivity = "alphabet-activity",
-  AlphabetTest = "alphabet-test",
-  MatchAnswerActivity = "match-answer-activity",
-  MatchAnswerTest = "match-answer-test",
-}
-
-export enum QuestionState {
-  Ready = "ready",
-  Waiting = "waiting",
-  Listening = "listening",
-}
-
 export interface Question {
   id: string;
   value: string;
@@ -40,21 +26,27 @@ export interface Question {
   extras: any[];
 }
 
-export interface Lesson extends Item {
+export interface Lesson {
+  id: string;
+  name: string;
   moduleId: number;
-  type: LessonType;
-  allowSpeakQuestion: boolean;
+  allowSpeakQuestion?: boolean;
   instructions: string;
   questionIds: string[];
   questions?: Question[];
   completed?: boolean;
 }
 
-export interface Module extends Item {
+export interface Module {
+  id: number;
+  name: string;
   courseId: number;
 }
 
-export interface Course extends Item {}
+export interface Course {
+  id: number;
+  name: string;
+}
 
 export interface User {
   id: number;
@@ -63,12 +55,12 @@ export interface User {
   courses?: Course[];
 }
 
-export interface Item {
-  id: number;
-  name: string;
-}
-
 export interface CompletedLesson {
   lessonId: number;
   userId: number;
+}
+
+export interface Item {
+  id: string|number;
+  name: string;
 }
