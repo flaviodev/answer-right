@@ -31,6 +31,7 @@ export interface Lesson {
   name: string;
   moduleId: number;
   allowSpeakQuestion?: boolean;
+  separatingPhonemes?: boolean;
   instructions: string;
   questionIds: string[];
   questions?: Question[];

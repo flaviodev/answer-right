@@ -19,12 +19,12 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const WordContainer = styled.input<{ status: InputStatus }>`
+export const WordContainer = styled.div<{ status: InputStatus }>`
   width: 100%;
   margin: 12px;
   padding: 12px;
-  font-size: 2.2rem;
-  text-align: center;
+  gap: 5px;
+  align-items: center;
   border: 3px solid
     ${({ status }) =>
       status === InputStatus.Correct ? "green" : status === InputStatus.Wrong ? "red" : "#ccc"};
@@ -36,6 +36,16 @@ export const WordContainer = styled.input<{ status: InputStatus }>`
     border-color: ${({ status }) =>
       status === InputStatus.Correct ? "darkgreen" : status === InputStatus.Wrong ? "darkred" : "#666"};
   }
+`;
+
+export const NormalText = styled.div`
+  margin-top: 5px;
+  font-size: 2.2rem;
+`;
+
+export const CursiveText = styled.div`
+  font-family: "Playwrite BR Guides", cursive;
+  font-size: 2.2rem;
 `;
 
 export const QuestionContainer = styled.h2`
@@ -101,4 +111,24 @@ export const ErrorMessage = styled.p`
   font-weight: bold;
   margin-top: 12px;
   font-size: 1.2rem;
+`;
+
+export const SeparatingPhonemes = styled.div`
+  margin-top: 5px;
+`;
+
+export const Button = styled.button`
+  font-size: 1.9rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-left: 1px;
+  margin-right: 1px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 `;

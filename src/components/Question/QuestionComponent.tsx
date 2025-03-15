@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, QuestionContainer, MicroButton, SpeakButton, ButtonContainer } from "./Question.style";
+import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, QuestionContainer, MicroButton, SpeakButton, ButtonContainer, CursiveText, NormalText, Button, SeparatingPhonemes } from "./Question.style";
 import { Question, SpeechRecognitionEvent } from "../Types";
 import { FaMicrophone, FaEllipsisH, FaVolumeUp } from "react-icons/fa";
 
-const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onAnswer} : {question: Question, allowSpeakQuestion: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
+const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, isSpeakCorrection, onAnswer} : {question: Question, allowSpeakQuestion: boolean, separatingPhonemes: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
 
   const [spokenText, setSpokenText] = useState<string>("");
   const [micState, setMicState] = useState<"ready" | "waiting" | "listening" | "locked">("ready");
@@ -68,6 +68,21 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
     };
   }
 
+  const speakPhoneme = (phoneme: string) => {
+    setMicState("locked");
+    setSpeakState("locked");
+    const utterance = new SpeechSynthesisUtterance();
+    utterance.lang = "pt-BR";
+    utterance.text = phoneme;
+    utterance.rate = 0.3; 
+    speechSynthesis.speak(utterance);
+
+    utterance.onend = () => {
+      setMicState("ready");
+      setSpeakState("ready");
+    };
+  }
+
   const speakResult = (match: boolean) => {
     const utterance = new SpeechSynthesisUtterance();
     utterance.lang = "pt-BR";
@@ -100,11 +115,18 @@ const QuestionComponent = ({question, allowSpeakQuestion, isSpeakCorrection, onA
     <Container>
       {!allowSpeakQuestion ? ( 
         <WordContainer
-          type="text"
-          value={question.value}
           status={status}
-          disabled
-        />
+        > 
+          {separatingPhonemes ? (
+            <>
+            <SeparatingPhonemes>{question.extras[0]["parts"].map((phoneme:string, i:number)=> <Button onClick={() => speakPhoneme(question.extras[0]["phonemes"][i])}>{phoneme}</Button>)}</SeparatingPhonemes>
+            <NormalText>{question.value}</NormalText>
+            </>
+          ):(
+            <NormalText>{question.value}</NormalText>
+          )}
+          <CursiveText>{question.answer}</CursiveText>
+        </WordContainer>
       ) : (
         <QuestionContainer>{question.value}</QuestionContainer>
       )}
