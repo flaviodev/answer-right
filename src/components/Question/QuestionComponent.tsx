@@ -3,7 +3,7 @@ import { Container, ErrorMessage, WordContainer, InputStatus, ResultText, Questi
 import { Question, SpeechRecognitionEvent } from "../Types";
 import { FaMicrophone, FaEllipsisH, FaVolumeUp } from "react-icons/fa";
 
-const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, isSpeakCorrection, onAnswer} : {question: Question, allowSpeakQuestion: boolean, separatingPhonemes: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
+const QuestionComponent = ({question, lessonType, instructions, separatingPhonemes, isSpeakCorrection, onAnswer} : {question: Question, lessonType: string, instructions:string, separatingPhonemes: boolean, isSpeakCorrection: Boolean, onAnswer: (match: Boolean) => void}) => {
 
   const [spokenText, setSpokenText] = useState<string>("");
   const [micState, setMicState] = useState<"ready" | "waiting" | "listening" | "locked">("ready");
@@ -21,7 +21,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
   recognition.lang = "pt-BR";
   recognition.continuous = false;
   recognition.interimResults = false;
-  
+
   const startListening = () => {
     setMicState("waiting");
     setSpeakState("locked");
@@ -39,7 +39,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
     setMicState("ready");
   
 
-    const match = transcript === question.answer.trim().toLowerCase();
+    const match = transcript === question.answer.trim().replace(",", "").toLowerCase();
     setIsMatch(match);
     speakResult(match);
   };
@@ -59,7 +59,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
     setSpeakState("speaking");
     const utterance = new SpeechSynthesisUtterance();
     utterance.lang = "pt-BR";
-    utterance.text = question.value;
+    utterance.text = lessonType === "question" ?  question.value : instructions;
     speechSynthesis.speak(utterance);
 
     utterance.onend = () => {
@@ -74,7 +74,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
     const utterance = new SpeechSynthesisUtterance();
     utterance.lang = "pt-BR";
     utterance.text = phoneme;
-    utterance.rate = 0.3; 
+    utterance.rate = 0.9; 
     speechSynthesis.speak(utterance);
 
     utterance.onend = () => {
@@ -95,7 +95,7 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
         setStatus(InputStatus.Wrong);
         if (isSpeakCorrection) {
           utterance.text = `Errado! A resposta certa é ${question.answer}`;
-          utterance.rate = 0.7; 
+          utterance.rate = 0.8; 
           speechSynthesis.speak(utterance);
         } else {
           utterance.text = `Errado!`;
@@ -113,10 +113,9 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
 
   return (
     <Container>
-      {!allowSpeakQuestion ? ( 
-        <WordContainer
-          status={status}
-        > 
+      {lessonType === "question" && <QuestionContainer>{question.value}</QuestionContainer>}
+      {lessonType === "alphabet" && 
+        <WordContainer status={status}> 
           {separatingPhonemes ? (
             <>
             <SeparatingPhonemes>{question.extras[0]["parts"].map((phoneme:string, i:number)=> <Button onClick={() => speakPhoneme(question.extras[0]["phonemes"][i])}>{phoneme}</Button>)}</SeparatingPhonemes>
@@ -125,17 +124,13 @@ const QuestionComponent = ({question, allowSpeakQuestion, separatingPhonemes, is
           ):(
             <NormalText>{question.value}</NormalText>
           )}
-          <CursiveText>{question.answer}</CursiveText>
+          <CursiveText>{question.value}</CursiveText>
         </WordContainer>
-      ) : (
-        <QuestionContainer>{question.value}</QuestionContainer>
-      )}
+    }
       <ButtonContainer>
-        {allowSpeakQuestion && (
           <SpeakButton onClick={speakState === "ready" ? speakQuestion : undefined} state={speakState}>
             <FaVolumeUp />
           </SpeakButton>
-        )}
         <MicroButton onClick={micState === "ready" ? startListening : undefined} state={micState}>
           {micState === "waiting" ? <FaEllipsisH /> : <FaMicrophone />}
         </MicroButton>

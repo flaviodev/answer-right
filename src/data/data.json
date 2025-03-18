@@ -61,6 +61,7 @@
             "id": "at",
             "name": "Lição Treino",
             "instructions": "Clique nos fonemas e Leia a palavra",
+            "type": "alphabet",
             "separatingPhonemes": true,
             "moduleId" : 1,
             "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "animar", "apito"]
@@ -69,6 +70,7 @@
             "id": "a1",
             "name": "Lista 1",
             "instructions": "Leia a palavra",
+            "type": "alphabet",
             "moduleId" : 1,
             "questionIds": ["abacaxi", "abacate", "abobora", "amizade", "alicate", "aviso", "abano", "amapa", "animar", "apito"]
         },
@@ -76,6 +78,7 @@
             "id": "a2",
             "name": "Lista 2",
             "instructions": "Leia a palavra",
+            "type": "alphabet",
             "moduleId" : 1,
             "questionIds": [ "amanda", "abajur", "alho", "arrumar", "astro", "assado", "achado", "arrasto", "alecrim", "atalho" ]
         },
@@ -83,38 +86,113 @@
             "id": "a3",
             "name": "Lista 3",
             "instructions": "Leia a palavra",
+            "type": "alphabet",
             "moduleId" : 1,
             "questionIds": [ "amora", "atacar", "abalar", "adorar", "amargo", "avião", "árvore", "abelha", "abraço", "alegria" ]
         },
         {
             "id": "c1",
-            "allowSpeakQuestion": true,
             "name": "Mandamentos da Lei de Deus",
             "instructions": "Responda",
+            "type": "question",
             "moduleId" : 2,
             "questionIds": [ "mandamento1", "mandamento2", "mandamento3", "mandamento4", "mandamento5", "mandamento6", "mandamento7", "mandamento8", "mandamento9", "mandamento10" ]
         },
         {
             "id": "aIt",
-            "name": "Lição Treino",
-            "instructions": "Clique nos fonemas e Leia a palavra",
+            "name": "Letra A",
+            "instructions": "Conheça a letra e o seu som",
+            "type": "alphabet",
             "separatingPhonemes": true,
             "moduleId" : 3,
-            "questionIds": ["a", "e", "i", "o", "u", "ai", "au", "ei", "eu", "oi"]
+            "questionIds": ["a"]
         },
         {
-            "id": "aI1",
-            "name": "Lista 1",
-            "instructions": "Leia a palavra",
+            "id": "eIt",
+            "name": "Letra E",
+            "instructions": "Conheça a letra e o seu som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["e"]
+        },
+        {
+            "id": "iIt",
+            "name": "Letra I",
+            "instructions": "Conheça a letra e o seu som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["i"]
+        },
+        {
+            "id": "oIt",
+            "name": "Letra O",
+            "instructions": "Conheça a letra e o seu som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["o"]
+        },
+        {
+            "id": "uIt",
+            "name": "Letra U",
+            "instructions": "Conheça a letra e o seu som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["u"]
+        },
+        {
+            "id": "aeiouI1",
+            "name": "Revisão A, E, I, O, U",
+            "instructions": "Leia a letra e diga o seu som",
+            "type": "alphabet",
             "moduleId" : 3,
             "questionIds": ["a", "e", "i", "o", "u"]
         },
         {
-            "id": "aI2",
-            "name": "Lista 2",
-            "instructions": "Leia a palavra",
+            "id": "anIt",
+            "name": "Letra A com som de ã",
+            "instructions": "Ouça a letra e a variação do som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
             "moduleId" : 3,
-            "questionIds": ["ai", "au", "ei", "eu", "oi"]
+            "questionIds": ["an"]
+        },
+        {
+            "id": "ehIt",
+            "name": "Letra E com som de É",
+            "instructions": "Ouça a letra e a variação do som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["eh"]
+        },
+        {
+            "id": "ohIt",
+            "name": "Letra O com som de Ó",
+            "instructions": "Ouça a letra e a variação do som",
+            "type": "alphabet",
+            "separatingPhonemes": true,
+            "moduleId" : 3,
+            "questionIds": ["oh"]
+        },
+        {
+            "id": "aeiI2",
+            "name": "Letra A, E, O e seus sons",
+            "instructions": "Diga o nome da letra e o seu som",
+            "type": "alphabet",
+            "moduleId" : 3,
+            "questionIds": ["a", "an", "e", "eh", "o", "oh"]
+        },
+        {
+            "id": "vogaisI3",
+            "name": "Todas as vogais e seus sons",
+            "instructions": "Diga o nome da letra e o seu som",
+            "type": "alphabet",
+            "moduleId" : 3,
+            "questionIds": ["a", "an", "e", "eh", "i", "o", "oh", "u"]
         }
     ],
     "questions" : [
@@ -510,111 +588,89 @@
         },
         {
             "id": "a",
-            "value": "a",
-            "answer": "a",
+            "value": "A a",
+            "answer": "Letra A, Som A",
             "extras": [
                 {
                     "parts": ["a"],
-                    "phonemes": ["a"]
+                    "phonemes": ["Letra A, Som A"]
+                }
+            ]        
+        },
+        {
+            "id": "an",
+            "value": "ã",
+            "answer": "Letra A, Som an",
+            "extras": [
+                {
+                    "parts": ["ã"],
+                    "phonemes": ["Letra A, Som An"]
                 }
             ]        
         },
         {
             "id": "e",
-            "value": "e",
-            "answer": "e",
+            "value": "E e",
+            "answer": "Letra E, Som E",
             "extras": [
                 {
                     "parts": ["e"],
-                    "phonemes": ["e"]
+                    "phonemes": ["Letra eh, Som eh"]
+                }
+            ]        
+        },
+        {
+            "id": "eh",
+            "value": "É é",
+            "answer": "Letra E, Som É",
+            "extras": [
+                {
+                    "parts": ["é"],
+                    "phonemes": ["Letra eh, Som é"]
                 }
             ]        
         },
         {
             "id": "i",
-            "value": "i",
-            "answer": "i",
+            "value": "I i",
+            "answer": "Letra i, Som i",
             "extras": [
                 {
                     "parts": ["i"],
-                    "phonemes": ["i"]
+                    "phonemes": ["Letra i, Som i"]
+                }
+            ]                
+        },
+        {
+            "id": "o",
+            "value": "O o",
+            "answer": "Letra O, Som O",
+            "extras": [
+                {
+                    "parts": ["o"],
+                    "phonemes": ["Letra o, Som o"]
                 }
             ]        
         },
         {
-            "id": "o",
-            "value": "o",
-            "answer": "o",
+            "id": "oh",
+            "value": "Ó ó",
+            "answer": "Letra o, Som ó",
             "extras": [
                 {
-                    "parts": ["o"],
-                    "phonemes": ["o"]
+                    "parts": ["ó"],
+                    "phonemes": ["Letra o, Som ó"]
                 }
             ]        
         },
         {
             "id": "u",
-            "value": "u",
-            "answer": "u",
+            "value": "U u",
+            "answer": "Letra u, Som u",
             "extras": [
                 {
                     "parts": ["u"],
-                    "phonemes": ["u"]
-                }
-            ]        
-        },
-        {
-            "id": "ai",
-            "value": "ai",
-            "answer": "ai",
-            "extras": [
-                {
-                    "parts": ["a", "i"],
-                    "phonemes": ["a", "i"]
-                }
-            ]        
-        },
-        {
-            "id": "au",
-            "value": "au",
-            "answer": "au",
-            "extras": [
-                {
-                    "parts": ["a", "u"],
-                    "phonemes": ["a", "u"]
-                }
-            ]        
-        },
-        {
-            "id": "ei",
-            "value": "ei",
-            "answer": "ei",
-            "extras": [
-                {
-                    "parts": ["e", "i"],
-                    "phonemes": ["e", "i"]
-                }
-            ]        
-        },
-        {
-            "id": "eu",
-            "value": "eu",
-            "answer": "eu",
-            "extras": [
-                {
-                    "parts": ["e", "u"],
-                    "phonemes": ["e", "u"]
-                }
-            ]        
-        },
-        {
-            "id": "oi",
-            "value": "oi",
-            "answer": "oi",
-            "extras": [
-                {
-                    "parts": ["o", "i"],
-                    "phonemes": ["o", "i"]
+                    "phonemes": ["Letra u, Som u"]
                 }
             ]        
         }

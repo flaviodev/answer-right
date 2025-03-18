@@ -30,7 +30,7 @@ export interface Lesson {
   id: string;
   name: string;
   moduleId: number;
-  allowSpeakQuestion?: boolean;
+  type: string;
   separatingPhonemes?: boolean;
   instructions: string;
   questionIds: string[];

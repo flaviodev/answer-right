@@ -54,7 +54,7 @@ const LessonComponent = ({lessonId} : {lessonId: string}) => {
         <>
           <Title>{data.name}</Title>
           <Instructions>{data.instructions}</Instructions>
-          <QuestionComponent question={questions[currentIndex]} allowSpeakQuestion={data.allowSpeakQuestion || false} separatingPhonemes={data.separatingPhonemes || false} onAnswer={onAnswer} isSpeakCorrection={true}/>
+          <QuestionComponent question={questions[currentIndex]} lessonType={data.type} instructions={data.instructions} separatingPhonemes={data.separatingPhonemes || false} onAnswer={onAnswer} isSpeakCorrection={true}/>
           <ProgressBarContainer>
             <Progress progress={completed} />
           </ProgressBarContainer>
